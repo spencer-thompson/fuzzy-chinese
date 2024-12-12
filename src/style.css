@@ -1,0 +1,76 @@
+/* less space between header elements */
+hr {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.reportview-container {
+  margin-top: -2em;
+}
+
+/* #MainMenu { */
+/*   visibility: hidden; */
+/* } */
+
+.stAppDeployButton {
+  visibility: hidden;
+}
+
+footer {
+  visibility: hidden;
+}
+
+#stDecoration {
+  display: none;
+}
+
+/* [data-baseweb="button-group"] { */
+/*   justify-content: center; */
+/* } */
+.stButtonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+stElementContainer {
+  justify-content: center;
+}
+
+/* fonts */
+
+stChatInput,
+code,
+pre,
+/* .token, */
+h1,
+h2,
+h3,
+h4,
+h5,
+/* [class|="st"], */
+span,
+kbd,
+* {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  /* font-style: normal; */
+}
+
+textarea,
+strong,
+.st-ax,
+body,
+html,
+em,
+hi,
+a,
+li,
+p {
+  font-family: "Montserrat";
+}
+
+/* [class|="st-emotion"] { */
+/*   font-family: "Material Symbols Rounded"; */
+/*   font-weight: 400; */
+/* } */
