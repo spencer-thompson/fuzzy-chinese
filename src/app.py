@@ -1,3 +1,10 @@
+"""
+Honors Contract for CS 3270
+---
+
+This is the Web User Interface for the Chinese Fuzzy Finder.
+"""
+
 import streamlit as st
 from pypinyin.contrib.tone_convert import to_tone
 from st_keyup import st_keyup
@@ -7,13 +14,13 @@ from db import init_db, query
 st.set_page_config("Honors Contract", layout="centered")
 
 
-with open("style.css", "r") as file:
-    css = file.read()
-
-st.html(f"<style>{css}</style>")
+# with open("style.css", "r") as file:
+#     css = file.read()
+#
+# st.html(f"<style>{css}</style>")
 
 if "db" not in st.session_state:
-    init_db()
+    init_db()  # initialize database, if not already
     st.session_state.db = True
 
 
@@ -66,6 +73,7 @@ result = query(f"""
     AND definition LIKE '%{dfn.replace(" ", "%") if dfn else "%"}%'
     LIMIT 10
     """)
+# wildcard characters, in the front and back, allow fuzzy search
 
 result.sort(key=lambda x: len(x[0]), reverse=True)
 

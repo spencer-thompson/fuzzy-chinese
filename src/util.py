@@ -15,7 +15,7 @@ def inject_header():
     with open("head.html") as file:
         new_head_html = file.read()
 
-    with open("styles.css") as styles:
+    with open("style.css") as styles:
         new_styles = styles.read()
 
     index_path = pathlib.Path(st.__file__).parent / "static" / "index.html"

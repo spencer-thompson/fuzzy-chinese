@@ -1,11 +1,16 @@
 /* less space between header elements */
 hr {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .reportview-container {
   margin-top: -2em;
+}
+
+.stMarkdownContainer {
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 /* #MainMenu { */
