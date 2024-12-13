@@ -14,17 +14,12 @@ from db import init_db, query
 st.set_page_config("Honors Contract", layout="centered")
 
 
-# with open("style.css", "r") as file:
-#     css = file.read()
-#
-# st.html(f"<style>{css}</style>")
-
 if "db" not in st.session_state:
     init_db()  # initialize database, if not already
     st.session_state.db = True
 
 
-st.markdown(
+st.markdown(  # Title
     """
     <div style="text-align: center;">
         
@@ -37,6 +32,7 @@ st.markdown(
 
 left, right = st.columns(2)
 
+# Input fields
 with left:
     pin = st_keyup(
         "Pinyin",
@@ -57,6 +53,7 @@ with right:
         label_visibility="hidden",
     )
 
+# Selection buttons
 style = st.segmented_control(
     "style",
     ["Traditional", "Simplified"],
@@ -67,16 +64,18 @@ style = st.segmented_control(
 
 st.write("---")
 
-# This is where the magic happens
+# This is where the magic happens. This is the tail end of a SQL select.
+# Wildcard characters, in the front and back, allow fuzzy search
 result = query(f"""
     pinyin LIKE '%{pin.replace(" ", "%") if pin else "%"}%'
     AND definition LIKE '%{dfn.replace(" ", "%") if dfn else "%"}%'
     LIMIT 10
     """)
-# wildcard characters, in the front and back, allow fuzzy search
 
+# Sort in reverse, its more pretty that way
 result.sort(key=lambda x: len(x[0]), reverse=True)
 
+# Display results
 for r in result:
     with st.empty():
         if len(style) == 1:
